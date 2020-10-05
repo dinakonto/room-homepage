@@ -1,3 +1,40 @@
+// STYLEGUIDE
+$col-primary-dark: hsl(0, 0%, 0%)
+$col-primary-light: hsl(0, 0%, 100%)
+$col-text: hsl(0, 0%, 63%)
+$col-cta: hsl(0, 0%, 27%)
+
+$font-base-size: 12px
+$font-stack: 'Spartan', sans-serif
+$font-weight-light: 500
+$font-weight-regular: 600
+$font-weight-bold: 700
+
+
+/*
+ * BASE LAYOUT
+ */
+*
+  box-sizing: border-box
+  // transition: all 0.2s ease-in-out
+body
+  margin: 0
+  height: 100%
+  width: 100%
+  font-family: $font-stack
+  font-weight: $font-weight-regular
+  font-size: $font-base-size
+  color: $col-text
+h1, h2, h3, h4, h5, h6
+  font-weight: $font-weight-bold
+  color: $col-primary-dark
+button
+  color: $col-cta
+
+
+
+
+// Slider functionality
 .slide img,
 .hero-text div
   display: none
