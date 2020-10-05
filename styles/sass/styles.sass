@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6
   color: $col-primary-dark
 button
   color: $col-cta
-  background: white
+  background: $col-primary-light
   border: none
 img
   max-width: 100%
@@ -62,7 +62,7 @@ header nav li:not(#hamburger)
   display: none
 // Mobile menu
 header.show-menu
-  background: white
+  background: $col-primary-light
   z-index: 1000
 header.show-menu .logo
   display: none
@@ -82,3 +82,21 @@ header nav li a
   background: rgba(0,0,0,0.5)
   position: fixed
   height: 100%
+
+
+/*
+ * MEDIA QUERIES
+ */
+@media screen and (min-width: 650px)
+  header
+    padding: 60px
+    display: flex
+  header nav
+    margin-left: 25px
+  header nav li#hamburger
+    display: none
+  header nav li:not(#hamburger)
+    display: inline-block
+    margin-left: 30px
+  header nav li a
+    color: $col-primary-light

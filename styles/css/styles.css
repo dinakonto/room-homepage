@@ -97,4 +97,30 @@ header nav li a {
   height: 100%;
 }
 
+/* * MEDIA QUERIES
+ * */
+@media screen and (min-width: 650px) {
+  header {
+    padding: 60px;
+    display: flex;
+  }
+
+  header nav {
+    margin-left: 25px;
+  }
+
+  header nav li#hamburger {
+    display: none;
+  }
+
+  header nav li:not(#hamburger) {
+    display: inline-block;
+    margin-left: 30px;
+  }
+
+  header nav li a {
+    color: white;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
