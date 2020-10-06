@@ -77,6 +77,22 @@ header nav li a
   text-transform: lowercase
   text-decoration: none
   color: $col-primary-dark
+  position: relative
+header nav li:not(#hamburger) a:hover:after
+  content: ""
+  position: absolute
+  width: 15px
+  border-bottom: 2px solid $col-primary-light
+  bottom: -10px
+  left: 0
+  right: 0
+  margin: auto
+header nav li a:focus
+  outline-color: $col-primary-light
+  outline-style: dotted
+  outline-width: 2px
+  outline-offset: 5px
+
 // Mobile menu
 header.show-menu
   background: $col-primary-light
@@ -89,6 +105,11 @@ header.show-menu nav ul
   justify-content: space-between
 header.show-menu nav li:not(#hamburger)
   display: inline-block
+header.show-menu nav li a:focus
+  outline-color: $col-primary-dark
+  outline-style: dotted
+  outline-width: 2px
+  outline-offset: 5px
 .overlay
   width: 100%
   height: 200px
