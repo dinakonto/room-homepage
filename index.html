@@ -32,43 +32,60 @@
       </nav>
     </header>
 
-    <section class="slider">
+    <section class="slider" aria-label="Slider">
       <div class="hero-images slide">
-        <div class="images">
-          <img src="./images/mobile-image-hero-1.jpg" alt="" class="1 current">
-          <img src="./images/mobile-image-hero-2.jpg" alt="" class="2">
-          <img src="./images/mobile-image-hero-3.jpg" alt="" class="3">
-        </div>
-        <div id="slider-ctrl">
-          <button id="prev" onclick="slideChange()"><</button>
-          <button id="next" onclick="slideChange()">></button>
-        </div>
+        <ul class="images">
+          <li class="1">
+            <img src="./images/mobile-image-hero-1.jpg" alt="">
+          </li>
+          <li class="2">
+            <img src="./images/mobile-image-hero-2.jpg" alt="">
+          </li>
+          <li  class="3">
+            <img src="./images/mobile-image-hero-3.jpg" alt="">
+          </li>
+        </ul>
+        <ul id="slider-ctrl">
+          <li>
+            <button type="button" id="prev">
+              <img src="./images/icon-angle-left.svg" alt="Previous item">
+            </button>
+          </li>
+          <li>
+            <button type="button" id="next">
+              <img src="./images/icon-angle-right.svg" alt="Next item">
+            </button>
+          </li>
+        </ul>
       </div>
       <div class="hero-text slide">
-        <div class="1 current">
-          <h1>Discover innovative ways to decorate</h1>
-          <p>
-            We provide unmatched quality, comfort, and style for property owners across the country.
-            Our experts combine form andnfunction in bringing your vision to life. Create a room in your
-            own style with our collection and make your property a reflection of you and what you love.
-          </p>
-        </div>
-        <div class="2">
-          <h1>We are available all across the globe</h1>
-          <p>
-            With stores all over the world, it's easy for you to find furniture for your home or place of business.
-            Locally, we’re in most major cities throughout the country. Find the branch nearest you using our
-            store locator. Any questions? Don't hesitate to contact us today.
-          </p>
-        </div>
-        <div class="3">
-          <h1>Manufactured with the best materials</h1>
-          <p>
-            Our modern furniture store provide a high level of quality. Our company has invested in advanced technology
-            to ensure that every product is made as perfect and as consistent as possible. With three decades of
-            experience in this industry, we understand what customers want for their home and office.
-          </p>
-        </div>
+        <ul>
+          <li class="1">
+            <h1>Discover innovative ways to decorate</h1>
+            <p>
+              We provide unmatched quality, comfort, and style for property owners across the country.
+              Our experts combine form andnfunction in bringing your vision to life. Create a room in your
+              own style with our collection and make your property a reflection of you and what you love.
+            </p>
+          </li>
+          <li class="2">
+            <h1>We are available all across the globe</h1>
+            <p>
+              With stores all over the world, it's easy for you to find furniture for your home or place of business.
+              Locally, we’re in most major cities throughout the country. Find the branch nearest you using our
+              store locator. Any questions? Don't hesitate to contact us today.
+            </p>
+          </li>
+          <li class="3">
+            <h1>Manufactured with the best materials</h1>
+            <p>
+              Our modern furniture store provide a high level of quality. Our company has invested in advanced technology
+              to ensure that every product is made as perfect and as consistent as possible. With three decades of
+              experience in this industry, we understand what customers want for their home and office.
+            </p>
+          </li>
+        </ul>
+        <div aria-live="polite" aria-atomic="true" class="liveregion"></div>
         <button class="btn-primary">Shop now</button>
       </div>
     </section>

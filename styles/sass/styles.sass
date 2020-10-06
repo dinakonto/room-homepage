@@ -35,12 +35,25 @@ button
   border: none
 img
   max-width: 100%
+
 // SLIDER
-.slide img,
+//Functionality
+.slide li,
 .hero-text div
   display: none
 .slide .current
   display: block
+.slide #slider-ctrl li
+  display: inline-block
+// Style
+.slide ul
+  list-style-type: none
+  padding: 0
+  margin: 0
+#slider-ctrl button
+  background: $col-primary-dark
+.liveregion
+  visibility: none
 // HEADER
 header
   padding: 45px 25px
@@ -60,6 +73,10 @@ header nav li#hamburger
   left: 25px
 header nav li:not(#hamburger)
   display: none
+header nav li a
+  text-transform: lowercase
+  text-decoration: none
+  color: $col-primary-dark
 // Mobile menu
 header.show-menu
   background: $col-primary-light
@@ -72,10 +89,6 @@ header.show-menu nav ul
   justify-content: space-between
 header.show-menu nav li:not(#hamburger)
   display: inline-block
-header nav li a
-  text-transform: lowercase
-  text-decoration: none
-  color: $col-primary-dark
 .overlay
   width: 100%
   height: 200px

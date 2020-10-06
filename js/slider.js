@@ -1,39 +1,45 @@
 // Get total number of slides
-const numSlides = $(".images").children().length;
+const slidesText = $(".hero-text ul").children();
+const slidesImages = $(".hero-images .images").children();
+const numOfSlides = slidesText.length - 1;
+let slideNum;
 
-function slideChange() {
-  const currentSlide = $(".slide .current");
-  let nextSlide;
-  let prevSlide;
-
-  // HIDE OLD SLIDE
-  currentSlide.removeClass("current");
-
-  // SHOW NEXT SLIDE
-  if (event.target.id === "next") {
-    if (!currentSlide.hasClass(numSlides)) {
-      nextSlide = currentSlide.next();
-    }
-    // If it's the last slide, loop back around to the first
-    else {
-      nextSlide = $(".slide .1");
-    };
-
-    // Change slide
-    nextSlide.addClass("current");
-  }
-
-  // SHOW PREVIOUS SLIDE
-  else if (event.target.id === "prev") {
-    if (!currentSlide.hasClass("1")) {
-      prevSlide = currentSlide.prev();
-    }
-    // If it's the first slide, loop back around to the last
-    else {
-      prevSlide = $(".slide ." + numSlides);
-    };
-
-    // Change slide
-    prevSlide.addClass("current");
-  }
+function init() {
+  slideNum = 0;
+  slidesText.eq(slideNum).addClass("current");
+  slidesImages.eq(slideNum).addClass("current");
 }
+
+function changeSlide(dir) { // dir = Direction of click (prev/next)
+  // Get current
+  const oldSlides = $(".slide .current");
+
+  // Change num
+  if (dir === "next") {
+    console.log("clicked next")
+    slideNum++;
+    if (slideNum > numOfSlides) {
+      slideNum = 0;
+    }
+  } else if (dir === "prev") {
+    console.log("clicked prev")
+    slideNum--;
+    if (slideNum < 0) {
+      slideNum = numOfSlides;
+    }
+  }
+
+  // Set new, remove old
+  slidesText.eq(slideNum).addClass("current");
+  slidesImages.eq(slideNum).addClass("current");
+  oldSlides.removeClass("current");
+
+  // Announce slide number to screenreaders
+  $(".liveregion").text("Item " + (slideNum + 1) + " of " + (numOfSlides + 1));
+}
+
+init();
+
+$("#slider-ctrl button").click(function() {
+  changeSlide(this.id);
+});

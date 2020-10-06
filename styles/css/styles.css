@@ -30,13 +30,31 @@ img {
   max-width: 100%;
 }
 
-.slide img,
+.slide li,
 .hero-text div {
   display: none;
 }
 
 .slide .current {
   display: block;
+}
+
+.slide #slider-ctrl li {
+  display: inline-block;
+}
+
+.slide ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#slider-ctrl button {
+  background: black;
+}
+
+.liveregion {
+  visibility: none;
 }
 
 header {
@@ -64,6 +82,12 @@ header nav li:not(#hamburger) {
   display: none;
 }
 
+header nav li a {
+  text-transform: lowercase;
+  text-decoration: none;
+  color: black;
+}
+
 header.show-menu {
   background: white;
   z-index: 1000;
@@ -81,12 +105,6 @@ header.show-menu nav ul {
 
 header.show-menu nav li:not(#hamburger) {
   display: inline-block;
-}
-
-header nav li a {
-  text-transform: lowercase;
-  text-decoration: none;
-  color: black;
 }
 
 .overlay {
