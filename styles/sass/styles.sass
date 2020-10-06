@@ -49,55 +49,21 @@ button.btn-primary
 button.btn-primary:after
   content: url("../../images/icon-arrow.svg")
   position: absolute
-  margin-left: 40px
+  padding-left: 40px
+button.btn-primary:hover
+  cursor: pointer
+  opacity: 0.5
+button.btn-primary:hover:after
+  opacity: 0.5
+button.btn-primary:focus
+  outline-color: $col-primary-dark
+  outline-offset: 10px
+  outline-width: 2px
+  outline-style: dotted
 img
   width: 100%
 .logo img
   max-width: 63px
-
-// SLIDER
-
-// Style
-.slide ul
-  list-style-type: none
-  padding: 0
-  margin: 0
-.slide.hero-images
-  position: relative
-.slide.hero-text
-  padding: 40px 30px
-  padding-bottom: 60px
-.slide.hero-text ul li
-  min-height: 260px
-// Controls
-#slider-ctrl
-  position: absolute
-  bottom: 7px
-  right: 0
-#slider-ctrl li
-  display: inline-block
-#slider-ctrl li:not(:last-of-type)
-  margin-right: -3px
-#slider-ctrl button
-  background: $col-primary-dark
-  padding: 20px 25px
-#slider-ctrl button:hover
-  cursor: pointer
-  background: $col-cta
-#slider-ctrl button:focus
-  background: $col-cta
-  outline: none
-#slider-ctrl li button img
-  width: 0.6em
-//Functionality
-.slide li,
-.hero-text div
-  display: none
-.slide .current
-  display: block
-.liveregion
-  visibility: none
-
 
 // HEADER
 header
@@ -166,13 +132,73 @@ header.show-menu nav li a:focus
   height: 100%
   overflow: hidden
 
+// SLIDER
+// Images
+.hero-images .images li
+  height: 95vw
+.hero-images .images li.s1
+  background: url("../../images/mobile-image-hero-1.jpg") no-repeat
+  background-size: cover
+.hero-images .images li.s2
+  background: url("../../images/mobile-image-hero-2.jpg") no-repeat
+  background-size: cover
+.hero-images .images li.s3
+  background: url("../../images/mobile-image-hero-3.jpg") no-repeat
+  background-size: cover
+// Style
+.slide ul
+  list-style-type: none
+  padding: 0
+  margin: 0
+.slide.hero-images
+  position: relative
+.slide.hero-text
+  padding: 40px 30px
+  padding-bottom: 60px
+.slide.hero-text ul li
+  min-height: calc(300px - 15vw)
+// Controls
+#slider-ctrl
+  position: absolute
+  bottom: 0
+  right: 0
+#slider-ctrl
+  background: $col-primary-dark
+#slider-ctrl li
+  display: inline-block
+#slider-ctrl li:not(:last-of-type)
+  margin-right: -3px
+#slider-ctrl button
+  background: $col-primary-dark
+  padding: 20px 25px
+#slider-ctrl button:hover
+  cursor: pointer
+  background: $col-cta
+#slider-ctrl button:focus
+  background: $col-cta
+  outline: none
+#slider-ctrl li button img
+  width: 0.6em
+//Functionality
+.slide li,
+.hero-text div
+  display: none
+.slide .current
+  display: block
+.liveregion
+  visibility: none
+
 
 /*
  * MEDIA QUERIES
  */
 @media screen and (min-width: 700px)
+  h1
+    font-size: 3.3em
+    margin-bottom: 25px
+  // HEADER
   header
-    padding: 60px
+    padding: 60px 20px
     display: flex
   header nav
     margin-left: 25px
@@ -183,3 +209,49 @@ header.show-menu nav li a:focus
     margin-left: 30px
   header nav li a
     color: $col-primary-light
+  // SLIDER
+  section.slider
+    display: grid
+    grid-template-columns: 1fr 42%
+    align-items: center
+  .slide.hero-text
+    margin-top: -50px
+  .slide.hero-text ul li
+    min-height: 250px
+  #slider-ctrl
+    right: -115px
+  // Images
+  .hero-images .images li
+    max-height: 534px
+  .hero-images .images li.s1
+    background: url("../../images/desktop-image-hero-1.jpg") no-repeat
+    background-size: cover
+    background-position: center
+  .hero-images .images li.s2
+    background: url("../../images/desktop-image-hero-2.jpg") no-repeat
+    background-size: cover
+    background-position: center
+  .hero-images .images li.s3
+    background: url("../../images/desktop-image-hero-3.jpg") no-repeat
+    background-size: cover
+    background-position: center
+
+@media screen and (min-width: 1000px)
+  header
+    padding: 60px
+  .slide.hero-text
+    padding: 40px 60px
+
+@media screen and (min-width: 1300px)
+  .slide.hero-text
+    padding: 40px 100px
+  #slider-ctrl
+    right: -147px
+  // Controls
+  #slider-ctrl li:not(:last-of-type)
+    margin-right: -3px
+  #slider-ctrl button
+    background: $col-primary-dark
+    padding: 25px 30px
+  #slider-ctrl li button img
+    width: auto
