@@ -35,6 +35,11 @@ h1
   line-height: 1.1
   letter-spacing: -1px
   margin-bottom: 15px
+h2
+  text-transform: uppercase
+  font-size: 1em
+  letter-spacing: 4px
+  font-weight: $font-weight-bold
 button
   color: $col-cta
   background: $col-primary-light
@@ -188,6 +193,22 @@ header.show-menu nav li a:focus
 .liveregion
   visibility: none
 
+// ABOUT
+section.about .about-text
+  padding: 34px
+// Images
+.about .about-images
+  height: 63vw
+.about .about-images.a1
+  background: url("../../images/image-about-dark.jpg") no-repeat
+  background-size: cover
+  background-position: center
+.about .about-images.a2
+  background: url("../../images/image-about-light.jpg") no-repeat
+  background-size: cover
+  background-position: center
+
+
 
 /*
  * MEDIA QUERIES
@@ -235,12 +256,23 @@ header.show-menu nav li a:focus
     background: url("../../images/desktop-image-hero-3.jpg") no-repeat
     background-size: cover
     background-position: center
+  // ABOUT
+  section.about .about-text
+    padding: 50px
+  section.about
+    display: grid
+    grid-template-columns: 1fr 50% 1fr
+  .about .about-images
+    height: auto
 
 @media screen and (min-width: 1000px)
   header
     padding: 60px
   .slide.hero-text
     padding: 40px 60px
+  // ABOUT
+  section.about
+    grid-template-columns: 1fr 36.2% 1fr
 
 @media screen and (min-width: 1300px)
   .slide.hero-text

@@ -28,6 +28,13 @@ h1 {
   margin-bottom: 15px;
 }
 
+h2 {
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 4px;
+  font-weight: 700;
+}
+
 button {
   color: #454545;
   background: white;
@@ -251,6 +258,26 @@ header.show-menu nav li a:focus {
   visibility: none;
 }
 
+section.about .about-text {
+  padding: 34px;
+}
+
+.about .about-images {
+  height: 63vw;
+}
+
+.about .about-images.a1 {
+  background: url("../../images/image-about-dark.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.about .about-images.a2 {
+  background: url("../../images/image-about-light.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 /* * MEDIA QUERIES
  * */
 @media screen and (min-width: 700px) {
@@ -320,6 +347,19 @@ header.show-menu nav li a:focus {
     background-size: cover;
     background-position: center;
   }
+
+  section.about .about-text {
+    padding: 50px;
+  }
+
+  section.about {
+    display: grid;
+    grid-template-columns: 1fr 50% 1fr;
+  }
+
+  .about .about-images {
+    height: auto;
+  }
 }
 @media screen and (min-width: 1000px) {
   header {
@@ -328,6 +368,10 @@ header.show-menu nav li a:focus {
 
   .slide.hero-text {
     padding: 40px 60px;
+  }
+
+  section.about {
+    grid-template-columns: 1fr 36.2% 1fr;
   }
 }
 @media screen and (min-width: 1300px) {
