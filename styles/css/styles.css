@@ -9,15 +9,23 @@ body {
   height: 100%;
   width: 100%;
   font-family: "Spartan", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 12px;
   color: #a1a1a1;
   position: relative;
+  line-height: 1.7;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
+  font-weight: 600;
   color: black;
+}
+
+h1 {
+  font-size: 2.3em;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 15px;
 }
 
 button {
@@ -26,8 +34,79 @@ button {
   border: none;
 }
 
+button.btn-primary {
+  text-transform: uppercase;
+  font-family: "Spartan", sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  letter-spacing: 10px;
+  position: relative;
+}
+
+button.btn-primary:after {
+  content: url("../../images/icon-arrow.svg");
+  position: absolute;
+  margin-left: 40px;
+}
+
 img {
-  max-width: 100%;
+  width: 100%;
+}
+
+.logo img {
+  max-width: 63px;
+}
+
+.slide ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.slide.hero-images {
+  position: relative;
+}
+
+.slide.hero-text {
+  padding: 40px 30px;
+  padding-bottom: 60px;
+}
+
+.slide.hero-text ul li {
+  min-height: 260px;
+}
+
+#slider-ctrl {
+  position: absolute;
+  bottom: 7px;
+  right: 0;
+}
+
+#slider-ctrl li {
+  display: inline-block;
+}
+
+#slider-ctrl li:not(:last-of-type) {
+  margin-right: -3px;
+}
+
+#slider-ctrl button {
+  background: black;
+  padding: 20px 25px;
+}
+
+#slider-ctrl button:hover {
+  cursor: pointer;
+  background: #454545;
+}
+
+#slider-ctrl button:focus {
+  background: #454545;
+  outline: none;
+}
+
+#slider-ctrl li button img {
+  width: 0.6em;
 }
 
 .slide li,
@@ -37,20 +116,6 @@ img {
 
 .slide .current {
   display: block;
-}
-
-.slide #slider-ctrl li {
-  display: inline-block;
-}
-
-.slide ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-#slider-ctrl button {
-  background: black;
 }
 
 .liveregion {
@@ -64,6 +129,7 @@ header {
   top: 0;
   left: 0;
   text-align: center;
+  z-index: 1000;
 }
 
 header nav ul {
@@ -148,7 +214,7 @@ header.show-menu nav li a:focus {
 
 /* * MEDIA QUERIES
  * */
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 700px) {
   header {
     padding: 60px;
     display: flex;
