@@ -1,27 +1,63 @@
-// TODO:
-// - Capture focus within open menu
-// - Stop page scrolling when menu open
-//      AND/OR
-// - Fix header/menu to top
+function toggleMenu() {
+  const menuBtn = $("#hamburger");
+  const iconImg = $("#hamburger img");
+  const iconLink = $("#hamburger a");
+  const header = $("header");
+  const body = $('body');
 
-$("#hamburger").click(function() {
-  $("header").toggleClass("show-menu")
+  header.toggleClass("show-menu");
+  body.toggleClass('stop-scrolling')
 
-  if ($("header").hasClass("show-menu")) {
+  if (header.hasClass("show-menu")) {
     // Show 'close' icon
-    $("#hamburger img").attr("src", "./images/icon-close.svg")
-    $("#hamburger img").attr("alt", "Close")
-    $("#hamburger a").attr("aria-label", "Close menu")
+    iconImg.attr("src", "./images/icon-close.svg");
+    iconImg.attr("alt", "Close");
+    iconLink.attr("aria-label", "Close menu");
     // Show overlay
-    $("header").after("<div class='overlay'></div>")
+    header.after("<div class='overlay'></div>");
+  } else {
+    // Show 'hamburger' icon
+    iconImg.attr("src", "./images/icon-hamburger.svg");
+    iconImg.attr("alt", "Menu");
+    iconLink.attr("aria-label", "Open menu");
+    // Remove overlay
+    $(".overlay").remove();
   }
 
-  else {
-    // Show 'hamburger' icon
-    $("#hamburger img").attr("src", "./images/icon-hamburger.svg")
-    $("#hamburger img").attr("alt", "Menu")
-    $("#hamburger a").attr("aria-label", "Open menu")
-    // Hide overlay
-    $(".overlay").remove()
+}
+
+function trapFocus(e) {
+// Reference: https://uxdesign.cc/how-to-trap-focus-inside-modal-to-make-it-ada-compliant-6a50f9a70700
+  const menuLinks = $("nav").find("a");
+  const firstLink = menuLinks[0];
+  const lastLink = menuLinks[menuLinks.length - 1];
+  const isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+
+  if (!isTabPressed) {
+    return;
+  }
+
+  if (e.shiftKey) { // if shift key pressed for shift + tab combination
+    if (document.activeElement === firstLink) {
+      lastLink.focus(); // add focus for the last focusable element
+      e.preventDefault();
+    }
+  } else { // if tab key is pressed
+    if (document.activeElement === lastLink) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+      firstLink.focus(); // add focus for the first focusable element
+      e.preventDefault();
+    }
+  }
+}
+
+// Show/hide menu
+$("#hamburger").click(function() {
+  toggleMenu();
+})
+
+// Trap tab focus inside open mobile nav
+$(document).keydown(function(e) {
+  if ($("header").hasClass("show-menu")) {
+    trapFocus(e);
   }
 })
